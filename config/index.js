@@ -20,7 +20,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */
@@ -65,5 +65,14 @@ module.exports = {
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report
+  },
+  proxyTable: {
+    '/wp-json': { //代理
+      target: 'http://www.weipxiu.com',//服务端地址和端口
+      changeOrigin: true,//启动代理
+      pathRewrite: {//重写路径
+        '^/wp-json': 'wp-json'
+      }
+    }
   }
 }
