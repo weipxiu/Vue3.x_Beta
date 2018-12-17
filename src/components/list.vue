@@ -1,6 +1,11 @@
 <template>
   <div class="continar-left">
-    <div class="text">
+    <div
+      class="text"
+      v-if="listData && listData.length>0"
+      v-for="(item, index) in listData"
+      :key="index"
+    >
       <div class="img-left">
         <a
           class="read-more"
@@ -26,11 +31,11 @@
             </ul><i></i>
           </span>
           <a
-            href="https://www.weipxiu.com/2433.html"
+            :href="item.link"
             target="_blank"
-            title="vue2+webpack区分环境打包"
+            :title="item.title.rendered"
           >
-            vue2+webpack区分环境打包</a>
+            {{item.title.rendered}}</a>
         </h2>
         <div class="entry-meta">
           <a href="https://www.weipxiu.com">唯品秀</a>
@@ -110,8 +115,9 @@ export default {
     }
   },
   created() {
-    API.getArticleList().then((res)=>{
+    API.getArticleList().then((res) => {
       console.log(res)
+      this.listData = res.data
     }).catch(function (err) {
       console.log(err);
     })

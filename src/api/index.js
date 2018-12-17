@@ -1,11 +1,12 @@
 import axios from 'axios'
-process.env.baseUrl = 'https://www.weipxiu.com'
-console.log(process.env)
+// process.env.baseUrl = 'https://www.weipxiu.com'
+// console.log(process.env.NODE_ENV)
+var baseUrl = 'https://www.weipxiu.com'
 export default {
   // 获取公用信息
   getGlobalInfomation (params) {
     return axios({
-      url: `${process.env.baseUrl}/wp-json/xm-blog/v1/info`,
+      url: `baseUrl/wp-json/xm-blog/v1/info`,
       params
     })
   },
@@ -13,7 +14,7 @@ export default {
   // 获取菜单
   getMenuList (params) {
     return axios({
-      url: `${process.env.baseUrl}/wp-json/xm-blog/v1/menu`,
+      url: `baseUrl/wp-json/xm-blog/v1/menu`,
       params
     })
   },
@@ -29,21 +30,21 @@ export default {
   // 获取文章详情
   getArticleDetails (id) {
     return axios({
-      url: `${process.env.baseUrl}/wp-json/wp/v2/posts/${id}`
+      url: `baseUrl/wp-json/wp/v2/posts/${id}`
     })
   },
 
   // 获取文章详情
   getPageDetails (id) {
     return axios({
-      url: `${process.env.baseUrl}/wp-json/wp/v2/pages/${id}`
+      url: `baseUrl/wp-json/wp/v2/pages/${id}`
     })
   },
 
   // 更新阅读量
   updateViewCount (data) {
     return axios({
-      url: `${process.env.baseUrl}/wp-json/xm-blog/v1/view-count`,
+      url: `baseUrl/wp-json/xm-blog/v1/view-count`,
       method: 'POST',
       data
     })
@@ -52,7 +53,7 @@ export default {
   // 发表意见
   updateArticleLike (data) {
     return axios({
-      url: `${process.env.baseUrl}/wp-json/xm-blog/v1/link/`,
+      url: `baseUrl/wp-json/xm-blog/v1/link/`,
       method: 'POST',
       data
     })
