@@ -33,6 +33,10 @@ import VueCompositionApi from '@vue/composition-api'
 Vue.use(VueCompositionApi)
 ```
 
+```
+因为是体验，所以很多地方可能需要特别注释等等，脚手架默认eslint是严格模式，想关闭eslint严格模式记得去掉package.json下的"eslint:recommended"
+```
+
 ## Project setup
 ```
 npm install

@@ -8,14 +8,17 @@
 </template>
 
 <script>
-import { setup,reactive,computed,effect,toRefs } from '@vue/composition-api'
+import { setup, reactive, computed, toRefs } from '@vue/composition-api'
 export default {
       name: 'HelloWorld',
       created () {
-        console.log('初始化created');
+        console.log('初始化created',2);
+      },
+      mounted () {
+        console.log('初始化mounted',3);
       },
       setup(props, context) {
-        console.log('初始化setup');
+        console.log('初始化setup',1);
         // 生命周期，类似于created或者beforeCreate,在created方法前执行
         // props 中定义当前组件允许外界传递过来的参数名称, context相当于vue2.x中的this
         let state = reactive({
@@ -25,10 +28,11 @@ export default {
         })
 
         //方法
-        function countReduce() {
+        let countReduce = ()=>{
           state.count--
+
         }
-        function countAdd() {
+        let countAdd = ()=>{
           state.count++
         }
   
